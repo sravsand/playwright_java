@@ -12,19 +12,19 @@ Feature: Delete Issue feature
     And User click on the ellipsis button
     
 
-  @smoke @deleteissue @regression @deleteissueOk
+  @smoke @deleteissue @regression @deleteissueOk @smoke1
   Scenario: Validate the Delete Issue functionality
     When User click on the delete button
     And User need to confirm to delete issue
     Then User Successfully deleted the issue
 
- @smoke @deleteissue @regression @deleteissueCancel
+ @smoke @deleteissue @regression @deleteissueCancel @smoke1
   Scenario: Validate the Delete Issue Cancel button functionality 
     When User click on the delete button
     And User need to Cancel the delete issue
     Then User Successfully Canceled the issue
 
-@smoke @deleteissue @regression @deleteissueCancel
+@smoke @deleteissue @regression @deleteissueCancel @smoke1
   Scenario: Validate the Delete Issue XMark button functionality 
     When User click on the delete button
     And User need to click on X Mark on Delete issue

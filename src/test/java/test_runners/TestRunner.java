@@ -7,7 +7,7 @@ import org.testng.annotations.DataProvider;
 @CucumberOptions(
         features = "src/test/java/features/",
         glue = {"step_definitions"},
-        tags = "@KI-T1",
+        tags = "@smoke1",
         plugin = {
                 "pretty",
                 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
@@ -18,7 +18,7 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 	
 	
 	
-    @DataProvider(parallel = true)
+    @DataProvider(parallel = false)
     @Override
     public Object[][] scenarios() {
         return super.scenarios();

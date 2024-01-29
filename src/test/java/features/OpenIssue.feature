@@ -15,7 +15,7 @@ Feature: Open Issue feature
   @smoke @openissue @regression @openissueSave
   Scenario: Validate the Open Issue functionality with Save
     When User input Title "OpenIssue"
-    And User select Project " All Company | COMPANY "
+    And User select Project "All Company"
     And User select Owner " Terry Rosberry | RES009 "
     And User select the Status value "Open"
    And User select AssociatedRisk value "SandRisk12"
@@ -29,10 +29,10 @@ Feature: Open Issue feature
     And User click on Save
     Then User successfully added the new Issue
 
-    @smoke @openissue @regression @openissueSaveAndClose
+    @smoke @openissue @regression @openissueSaveAndClose @smoke1
   Scenario: Validate the Open Issue functionality with Save and Close
     When User input Title "OpenIssue15"
-    And User select Project " All Company | COMPANY "
+    And User select Project "All Company"
     And User select Owner " Terry Rosberry | RES009 "
     And User select the Status value "Open"
    And User select AssociatedRisk value "SandRisk12"

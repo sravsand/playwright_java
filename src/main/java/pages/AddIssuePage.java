@@ -44,7 +44,7 @@ public class AddIssuePage {
         this.selectPublishToProjectLevelValue = page.locator("//ng-select[@id='publishToProjectLevel']//div[@role='combobox']");
         this.addSeverity = page.locator("//*[@id=\"cf170\"]/div");
         this.selectResolutionDateValue = page.locator("//*[@id=\"cf95\"]");
-        this.addResolutionProgress = page.locator("//*[@id=\"cf34\"]/div/div/div[last()]");
+        this.addResolutionProgress = page.locator("//*[@id=\"cf34\"]/div/div/div[last()]/input");
         this.addDescription = page.locator("//div[@class='note-editable panel-body']");
         this.clickOnSolution = page.locator("//*[@id=\"mat-tab-label-2-1\"]");
         this.addSolution = page.locator("//div[@class='note-editable panel-body']");
@@ -96,14 +96,17 @@ public class AddIssuePage {
     }
 
 
-    public void selectPublishToProjectLevelValue(String proLvl) {
+    public void selectPublishToProjectLevelValue(String proLvl) throws InterruptedException {
         selectPublishToProjectLevelValue.click();
-        page.click("xpath=//*[contains(text(), '" + proLvl + "')]");
+        Thread.sleep(2000);
+        page.click("xpath=//span[@title='" + proLvl + "']");
+        Thread.sleep(1000);
+
     }
 
     public void addSeverity(String title) {
         addSeverity.click();
-        page.click("xpath=//*[contains(text(), '" + title + "')]");
+        page.click("//div[@role='option'][contains(text(),'"+title+"')]");
     }
 
 
@@ -117,7 +120,7 @@ public class AddIssuePage {
 
     public void addResolutionProgress(String resolutionProg) {
         addResolutionProgress.click();
-        page.click("xpath=//*[contains(text(), '" + resolutionProg + "')]");
+        page.click("//div[@role='option'][contains(text(),'"+resolutionProg+"')]");
     }
 
     public void addDescription(String descp) {

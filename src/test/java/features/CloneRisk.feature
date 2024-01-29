@@ -15,7 +15,7 @@ Feature: Clone Risk feature
    @smoke @CloneRisk @regression @CloneRiskSave
    Scenario: Validate the add Risk functionality with Save
      When User input Clone Risk Title "BugTest01"
-    And User select Clone Risk Project " All Company | COMPANY "
+    And User select Clone Risk Project "All Company"
     And User select Clone Risk Owner " Terry Rosberry | RES009 "
     And User select Clone Risk the Status value "Open"
     And User select Clone Risk Date identified with 0 days
@@ -32,7 +32,7 @@ Feature: Clone Risk feature
     @smoke @CloneRisk @regression @CloneRiskSaveandClose
     Scenario: Validate the add Risk functionality with Save and Close
     When User input Clone Risk Title "BugTest01"
-    And User select Clone Risk Project " All Company | COMPANY "
+    And User select Clone Risk Project "All Company"
     And User select Clone Risk Owner " Terry Rosberry | RES009 "
     And User select Clone Risk the Status value "Open"
     And User select Clone Risk Date identified with 0 days
@@ -49,7 +49,7 @@ Feature: Clone Risk feature
     @smoke @CloneRisk @regression @CloneRiskAllTabs
     Scenario: Validate the add Risk functionality with all the tabs
     When User input Clone Risk Title "BugTest01"
-    And User select Clone Risk Project " All Company | COMPANY "
+    And User select Clone Risk Project "All Company"
     And User select Clone Risk Owner " Terry Rosberry | RES009 "
     And User select Clone Risk the Status value "Open"
     And User select Clone Risk Date identified with 0 days
