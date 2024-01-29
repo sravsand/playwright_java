@@ -11,7 +11,7 @@ Feature: Add Risk feature
     And User click on the Risk tab
     And User click on the add Risk button
 
-   @smoke @addRisk @regression @addRiskSave
+   @smoke @addRisk @regression @addRiskSave @smoke4
    Scenario: Validate the add Risk functionality with Save
     When User input add Risk Title "BugTest01"
     And User select add Risk Project "All Company"
