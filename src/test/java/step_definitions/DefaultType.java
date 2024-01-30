@@ -1,10 +1,10 @@
 package step_definitions;
 
 import factory.PlaywrightDriverFactory;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.When;
 import org.testng.Assert;
 import pages.DefaultTypePage;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.When;
 
 public class DefaultType {
 
@@ -22,8 +22,8 @@ public class DefaultType {
                 "Validation Failed: Actual header text does not match with the expected header text");
     }
 
-    @When("User click on the different type of dropdown")
-    public void userClickOnTheDifferentTypeOfDropdown() throws Exception {
+    @When("User select all dropdown option and verify the add button visibility")
+    public void userSelectAllDropDownOptionAndVerifyTheAddButtonVisibility() throws Exception {
         Thread.sleep(10000);
         defaultTypePage.verifyOption();
     }

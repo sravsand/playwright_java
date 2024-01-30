@@ -8,8 +8,8 @@ Feature: Deafault Type feature
     Then User successfully logged in
     And User should see the home page
 
-  @smoke @defaultType @regression4 @copyIssueCopy
+  @smoke @defaultType @regression @copyIssueCopy
   Scenario: Validate Add button Functionality
     When User navigate to the default type page
     And  verify header text of the default type page
-    When User click on the different type of dropdown
+    When User select all dropdown option and verify the add button visibility

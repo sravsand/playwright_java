@@ -37,22 +37,20 @@ public class DefaultTypePage {
         boolean value;
         List<String> defaultTypeListText = this.dataTypeList.allInnerTexts();
         for (String typeText : defaultTypeListText) {
+            Thread.sleep(2000);
             typeText = typeText.trim();
             this.page.locator("#selectListEditor").click();
+            this.page.locator("//select[@id='selectListEditor']").selectOption(typeText);
             Thread.sleep(3000);
-            this.page.locator("//option[normalize-space(text())='" + typeText + "']").click();
-            Thread.sleep(2000);
             if (dataType.contains(typeText)) {
                 value = this.addButton.isVisible();
                 if (!value) {
-                    System.out.println("Text 1 is: " + typeText);
-                    throw new Exception("Add Button is not visible");
+                    throw new Exception("Add Button is not visible for the field: " + typeText);
                 }
             } else {
                 value = this.addButton.isVisible();
                 if (value) {
-                    System.out.println("Text 2 is: " + typeText);
-                    throw new Exception("Add Button is visible");
+                    throw new Exception("Add Button is visible for the field: " + typeText);
                 }
             }
         }
