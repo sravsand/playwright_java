@@ -43,13 +43,9 @@ public class AddWorkFlowPage {
     }
 
     public void addWorkFlow(String typeText, String workflowName, String description) throws InterruptedException {
-        Thread.sleep(2000);
-        typeText = typeText.trim();
         this.page.locator("#selectListEditor").click();
         this.page.locator("//select[@id='selectListEditor']").selectOption(typeText);
-        Thread.sleep(3000);
         this.addButton.click();
-        Thread.sleep(3000);
         addWorkFlowForEntity(workflowName, description);
     }
 
@@ -57,7 +53,7 @@ public class AddWorkFlowPage {
         this.workflowNameTextBox.fill(workflowName);
         this.descriptionTextBox.fill(description);
         this.saveAndCloseButton.click();
-        Thread.sleep(7000);
+        Thread.sleep(3500);
     }
 
     public List<String> getCreatedWorkFlowName() {
