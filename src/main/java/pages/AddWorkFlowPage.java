@@ -6,8 +6,8 @@ import com.microsoft.playwright.Page;
 import java.util.List;
 
 public class AddWorkFlowPage {
-    private Page page;
-    private Locator headerText;
+    private final Page page;
+    private final Locator headerText;
     private final Locator workFlowList;
     private final Locator addButton;
     private final Locator addWorkFlowHeaderText;

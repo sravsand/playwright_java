@@ -1,4 +1,4 @@
-Feature: Deafault Type feature
+Feature: Default Type feature
 
   Background:
     Given User is on the login page
@@ -13,3 +13,12 @@ Feature: Deafault Type feature
     When User navigate to the default type page
     And  verify header text of the default type page
     When User select all dropdown option and verify the add button visibility
+
+
+  @smoke @defaultType @regression @copyIssueCopy @addDefaultType
+  Scenario: Validate Add Default type functionality
+    When User click on the setting
+    Then User should see the Configuration page
+    When User click on the Default type page
+    Then User could see the Default type page
+    When Add default data type details and verify default type is added
