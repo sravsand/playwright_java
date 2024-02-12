@@ -7,7 +7,7 @@ import org.testng.annotations.DataProvider;
 @CucumberOptions(
         features = "src/test/java/features/",
         glue = {"step_definitions"},
-        tags = "@smoke",
+        tags = "@regression",
         plugin = {
                 "pretty",
                 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
