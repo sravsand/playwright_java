@@ -21,4 +21,12 @@ Feature: Default Type feature
     Then User should see the Configuration page
     When User click on the Default type page
     Then User could see the Default type page
-    When Add default data type details and verify default type is added
+    When Add default data type details and verify default type is added "Add"
+
+  @smoke @defaultType @regression @copyIssueCopy @editDefaultType
+  Scenario: Validate Add Default type functionality
+    When User click on the setting
+    Then User should see the Configuration page
+    When User click on the Default type page
+    Then User could see the Default type page
+    When Add default data type details and verify default type is added "Edit"

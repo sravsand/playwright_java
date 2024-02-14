@@ -27,6 +27,10 @@ public class DefaultTypePage {
     private final Locator descriptionTextBoxOfProjectDefaultType;
     private final Locator saveAndCloseButtonOfProjectDefaultType;
 
+    private final Locator inlineButtonOfCreatedDefaultType;
+    private final Locator editButtonOfCreatedDefaultType;
+    private final Locator headerTextOfEditPopupOfDefaultType;
+
     public DefaultTypePage(Page page) {
         this.page = page;
         this.headerText = page.locator("#breadcrumb-wrapper > div > ol >li:last-child");
@@ -43,6 +47,9 @@ public class DefaultTypePage {
         this.nameTextOfProjectDefaultType = page.locator("#Name");
         this.descriptionTextBoxOfProjectDefaultType = page.locator("#Description");
         this.saveAndCloseButtonOfProjectDefaultType = page.locator("#ButtonSaveAndClose");
+        this.inlineButtonOfCreatedDefaultType = page.locator("thead[class='bordered-themeprimary']+ tbody > tr:last-child >  td:nth-child(1)");
+        this.editButtonOfCreatedDefaultType = page.locator("thead[class='bordered-themeprimary']+ tbody > tr:last-child >  td:nth-child(1)  > div > ul > li:first-child > a");
+        this.headerTextOfEditPopupOfDefaultType = page.locator("#modal-title");
     }
 
     public void navigateToDefaultTypePage() {
@@ -91,7 +98,7 @@ public class DefaultTypePage {
                 this.addButton.click();
                 addDefaultType(dataTypeName, description);
             } else {
-                value =false;
+                value = false;
             }
         }
         return value;
@@ -119,5 +126,25 @@ public class DefaultTypePage {
 
     public String getCreatedDefaultTypeDescription() {
         return createdDefaultTypeDescription.innerText();
+    }
+
+    public void clickOnInlineButton() {
+        inlineButtonOfCreatedDefaultType.click();
+    }
+
+    public void clickOnEditButton() {
+        editButtonOfCreatedDefaultType.click();
+    }
+
+    public boolean getHeaderTextOfEditDefaultTypePopUp() {
+        return headerTextOfEditPopupOfDefaultType.isVisible();
+    }
+
+    public void updateDefaultTypeData(String name, String description) {
+        nameTextBox.clear();
+        nameTextBox.fill(name);
+        descriptionTextBox.clear();
+        descriptionTextBox.fill(description);
+        saveAndCloseButton.click();
     }
 }
