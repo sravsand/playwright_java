@@ -24,7 +24,7 @@ Feature: Default Type feature
     When Add default data type details and verify default type is added "Add"
 
   @smoke @defaultType @regression @copyIssueCopy @editDefaultType
-  Scenario: Validate Add Default type functionality
+  Scenario: Validate Edit  Default type functionality
     When User click on the setting
     Then User should see the Configuration page
     When User click on the Default type page
