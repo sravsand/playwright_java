@@ -104,6 +104,17 @@ public class DefaultTypePage {
         return value;
     }
 
+    public boolean isAddButtonVisible(String defaultDataType) throws InterruptedException {
+        this.defaultTypeListDropdown.click();
+        this.defaultTypeListDropdown.selectOption(defaultDataType);
+        Thread.sleep(3000);
+        if(!defaultDataType.contains("Project")) {
+            return addButton.isVisible();
+        } else {
+            return false;
+        }
+    }
+
     public void addDefaultType(String name, String description) {
         nameTextBox.fill(name);
         descriptionTextBox.fill(description);

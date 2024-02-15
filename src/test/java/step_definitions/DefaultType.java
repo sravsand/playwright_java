@@ -62,8 +62,8 @@ public class DefaultType {
     String defaultTypeText1;
     boolean value;
 
-    @When("Add default data type details and verify default type is added {string}")
-    public void addDefaultDataTypeDetailsAndVerifyDefaultTypeIsAdded(String function) throws InterruptedException {
+    @When("Add default data type details and verify default type is added")
+    public void addDefaultDataTypeDetailsAndVerifyDefaultTypeIsAdded() throws InterruptedException {
         List<String> defaultTypeList = defaultTypePage.getDefaultTypeList();
         for (String defaultTypeText : defaultTypeList) {
             Thread.sleep(2000);
@@ -78,44 +78,51 @@ public class DefaultType {
                         "Validation Failed: Actual data type name does not match with the expected data type name");
                 Assert.assertEquals(defaultTypePage.getCreatedDefaultTypeDescription().trim(), description,
                         "Validation Failed: Actual data type name does not match with the expected data type name");
-                if(function.equalsIgnoreCase("Edit")){
-                    userClickOnTheEditButton();
-                    verifyEditTypePopupIsDisplayed();
-                    userEditTheDefaultTypeDataAndClickOnTheSaveAndCloseButton();
-                    verifyDetailsSuccessfullyUpdated();
-                }
             }
         }
     }
 
     public void userClickOnTheEditButton() {
-        if (value) {
-            defaultTypePage.clickOnInlineButton();
-            defaultTypePage.clickOnEditButton();
-        }
+        defaultTypePage.clickOnInlineButton();
+        defaultTypePage.clickOnEditButton();
     }
 
-    public void verifyEditTypePopupIsDisplayed() {
-        if (value) {
-            Assert.assertTrue(defaultTypePage.getHeaderTextOfEditDefaultTypePopUp(), "Validation Failed: Edit popup is not opened ");
-        }
+    public void verifyEditTypePopupIsDisplayed() throws InterruptedException {
+        Thread.sleep(4000);
+        Assert.assertTrue(defaultTypePage.getHeaderTextOfEditDefaultTypePopUp(), "Validation Failed: Edit popup is not opened ");
     }
 
     String updatedDataTypeName, updatedDescription;
+
     public void userEditTheDefaultTypeDataAndClickOnTheSaveAndCloseButton() {
-        if (value) {
-            updatedDataTypeName = "Update " + defaultTypeText1 + " " + System.nanoTime();
-            updatedDescription = "Update " + defaultTypeText1 + " " + System.nanoTime();
-            defaultTypePage.updateDefaultTypeData(updatedDataTypeName, updatedDescription);
-        }
+        updatedDataTypeName = "Update " + defaultTypeText1 + " " + System.nanoTime();
+        updatedDescription = "Update " + defaultTypeText1 + " " + System.nanoTime();
+        defaultTypePage.updateDefaultTypeData(updatedDataTypeName, updatedDescription);
     }
+
     public void verifyDetailsSuccessfullyUpdated() throws InterruptedException {
-        if (value) {
+        Thread.sleep(2000);
+        Assert.assertEquals(defaultTypePage.getCreatedWorkflowName().trim(), updatedDataTypeName,
+                "Validation Failed: Actual data type name does not match with the expected data type name");
+        Assert.assertEquals(defaultTypePage.getCreatedDefaultTypeDescription().trim(), updatedDescription,
+                "Validation Failed: Actual data type name does not match with the expected data type name");
+    }
+
+    @When("User Edit the default type details and verify details is updated")
+    public void editTheDefaultTypeDetailsAndVerifyDetailsIsUpdated() throws InterruptedException {
+        List<String> defaultTypeList = defaultTypePage.getDefaultTypeList();
+        for (String defaultTypeText : defaultTypeList) {
             Thread.sleep(2000);
-            Assert.assertEquals(defaultTypePage.getCreatedWorkflowName().trim(), updatedDataTypeName,
-                    "Validation Failed: Actual data type name does not match with the expected data type name");
-            Assert.assertEquals(defaultTypePage.getCreatedDefaultTypeDescription().trim(), updatedDescription,
-                    "Validation Failed: Actual data type name does not match with the expected data type name");
+            defaultTypeText = defaultTypeText.trim();
+            defaultTypeText1 = defaultTypeText;
+            value = defaultTypePage.isAddButtonVisible(defaultTypeText);
+            if (value) {
+                userClickOnTheEditButton();
+                verifyEditTypePopupIsDisplayed();
+                userEditTheDefaultTypeDataAndClickOnTheSaveAndCloseButton();
+                verifyDetailsSuccessfullyUpdated();
+
+            }
         }
     }
 }
