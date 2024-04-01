@@ -12,7 +12,7 @@ Feature: Edit Issue feature
     And User click on the ellipsis button
     
 
-  @smoke @Editissue @regression @editIssueSave
+  @smoke @Editissue @regression @editIssueSave @smoke1
   Scenario: Validate the Edit Issue functionality with save issue
     When User click on the Edit button
     And User input Edit issue Titile "Edit title"
@@ -29,7 +29,7 @@ Feature: Edit Issue feature
     And User click on Apply Details edit issue
     Then User Successfully saved the Edit issue
 
- @smoke @Editissue @regression @editssueCancel
+ @smoke @Editissue @regression @editssueCancel @smoke1
   Scenario: Validate the edit Issue Cancel button functionality 
     When User click on the Edit button
     And User need to Cancel the Edit issue

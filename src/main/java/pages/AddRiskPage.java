@@ -9,12 +9,15 @@ import com.microsoft.playwright.FileChooser;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 
+
 public class AddRiskPage {
      private final Page page;
      private final Locator	clickOnRisk;
      private final Locator	addRisk;
      private final Locator	addRiskTitle;
      private final Locator	addRiskProject;
+
+     private final Locator projectOptions;
      private final Locator	addRiskOwner;
      private final Locator	addRiskStatus;
      private final Locator	addRiskDateIdentified;
@@ -43,7 +46,8 @@ public class AddRiskPage {
         this.addRisk = page.locator("//*[@id=\"widgetActions\"]/div[1]/a[1]");
         this.addRiskTitle = page.locator("//*[@id=\"title\"]");
         this.addRiskProject = page.locator("//*[@id=\"projectCode\"]/div/div/div[3]/input");
-        this.addRiskOwner = page.locator("//*[@id=\"ownerCode\"]/div/div/div[3]/input");
+        this.projectOptions =  page.locator("//ng-dropdown-panel[@role='listbox']//div[@role='option']");
+        this.addRiskOwner = page.locator("//*[@id=\"owner\"]/div/div/div[3]/input");
         this.addRiskStatus = page.locator("//*[@id=\"status\"]/div/div/div[3]");
         this.addRiskDateIdentified = page.locator("//*[@id=\"dateIdentified\"]");
         this.addRiskImpactDate = page.locator("//*[@id=\"impactDate\"]");
@@ -80,6 +84,9 @@ public class AddRiskPage {
 
     public void clickOnaddRiskProject(String Project){
        addRiskProject.fill(Project);
+       page.waitForTimeout(2000);
+       projectOptions.click();
+
     }
 
     public void clickOnaddRiskOwner(String Owner){

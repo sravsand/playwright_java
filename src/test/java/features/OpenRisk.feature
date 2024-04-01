@@ -15,7 +15,7 @@ Feature: Open Risk feature
    @smoke @openRisk @regression @openRiskSave
    Scenario: Validate the Open Risk functionality with Save
     When User input add Risk Title "BugTest01"
-    And User select add Risk Project " All Company | COMPANY "
+    And User select add Risk Project "All Company"
     And User select add Risk Owner " Terry Rosberry | RES009 "
     And User select add Risk the Status value "Open"
     And User select add Risk Date identified with 0 days
@@ -29,10 +29,10 @@ Feature: Open Risk feature
     And User click on Save
     Then User successfully added the new Risk
 
-    @smoke @openRisk @regression @openRiskSaveandClose
+    @smoke @openRisk @regression @openRiskSaveandClose @smoke1
     Scenario: Validate the Open Risk functionality with Save and Close
     When User input add Risk Title "BugTest01"
-    And User select add Risk Project " All Company | COMPANY "
+    And User select add Risk Project "All Company"
     And User select add Risk Owner " Terry Rosberry | RES009 "
     And User select add Risk the Status value "Open"
     And User select add Risk Date identified with 0 days
@@ -49,7 +49,7 @@ Feature: Open Risk feature
     @smoke @openRisk @regression @openRiskAllTabs
     Scenario: Validate the Open Risk functionality with all the tabs
     When User input add Risk Title "BugTest01"
-    And User select add Risk Project " All Company | COMPANY "
+    And User select add Risk Project "All Company"
     And User select add Risk Owner " Terry Rosberry | RES009 "
     And User select add Risk the Status value "Open"
     And User select add Risk Date identified with 0 days

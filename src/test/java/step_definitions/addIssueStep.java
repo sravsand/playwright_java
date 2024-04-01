@@ -21,7 +21,8 @@ public class addIssueStep {
     }
 
     @And("User input Title {string}")
-    public void useraddIssueTitle(String title) {
+    public void useraddIssueTitle(String title) throws InterruptedException{
+        Thread.sleep(5000);
     	 addIssuePage.addIssueTitle(title);
 
     }
@@ -42,13 +43,14 @@ public class addIssueStep {
     }
 
      @And("User select AssociatedRisk value {string}")
-    public void userselectAssociatedRiskValue(String value) {
+    public void userselectAssociatedRiskValue(String value) throws InterruptedException{
        addIssuePage.selectAssociatedRiskValue(value);
+       Thread.sleep(2000);
     }
 
 
      @And("User select the PublishTo value {string}")
-    public void userselectPublishToProjectLevelValue(String prolevl) {
+    public void userselectPublishToProjectLevelValue(String prolevl) throws InterruptedException{
         addIssuePage.selectPublishToProjectLevelValue(prolevl);
     }
 

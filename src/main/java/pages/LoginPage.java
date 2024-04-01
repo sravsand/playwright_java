@@ -11,6 +11,8 @@ public class LoginPage {
     private final Locator loginButton;
     private final Locator error;
     private final Locator homeTitle;
+    private final Locator settingButton;
+    private final Locator defaultTypeOption;
     private final Page page;
 
     public LoginPage(Page page) {
@@ -20,6 +22,8 @@ public class LoginPage {
         this.loginButton = page.locator("//*[@id='btnLogin']");
         this.error = page.locator("//div[contains(text(),'Invalid User ID, Password or IP Address')]");
         this.homeTitle = page.locator("//*[@id='Home']/span");
+        this.settingButton = page.locator("#btn-settings");
+        this.defaultTypeOption = page.locator("//span[normalize-space(text())='Default Types']");
     }
 
     public void navigateToUrl() {
@@ -49,5 +53,13 @@ public class LoginPage {
 
     public String getErrorMessage() {
         return error.innerText();
+    }
+
+    public void clickOnSettingButton() {
+        settingButton.click();
+    }
+
+    public void clickOnDefaultTypesOption() {
+        defaultTypeOption.click();
     }
 }

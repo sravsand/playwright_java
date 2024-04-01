@@ -15,7 +15,7 @@ Feature: Clone Issue feature
   @smoke @cloneissue @regression @cloneissueSave
   Scenario: Validate the Clone Issue functionality with Save
     When User input Title "DefectClone"
-    And User select Project " All Company | COMPANY "
+    And User select Project "All Company"
     And User select Owner " Terry Rosberry | RES009 "
     And User select the Status value "Open"
    And User select AssociatedRisk value "SandRisk12"
@@ -32,10 +32,10 @@ Feature: Clone Issue feature
     @smoke @cloneissue @regression @cloneissueSaveAndClose
   Scenario: Validate the Clone Issue functionality with Save and Close
     When User input Title "DefetcClone15"
-    And User select Project " All Company | COMPANY "
+    And User select Project "All Company"
     And User select Owner " Terry Rosberry | RES009 "
     And User select the Status value "Open"
-   And User select AssociatedRisk value "SandRisk12"
+   And User select AssociatedRisk value "risk6"
     And User select the PublishTo value "Project"
    And User select Severity " Medium "
     And User select Expected Resolution Date value 5 days

@@ -11,7 +11,7 @@ Feature: Add Issue feature
     And User click on the issues tab
     And User click on the add button
 
-  @KI-T1 @smoke @addissue @regression @addissueSave
+  @KI-T1 @smoke @addissue @regression @addissueSave @smoke1
   Scenario: Validate the add Issue functionality with Save
     When User input Title "Issue"
     And User select Project " SandProj | SANDPROJECTCODE "
@@ -28,10 +28,10 @@ Feature: Add Issue feature
     And User click on Save
     Then User successfully added the new Issue
 
-  @smoke @addissue @regression @addissueSaveAndClose
+  @smoke @addissue @regression @addissueSaveAndClose @smoke1
   Scenario: Validate the add Issue functionality with Save and Close
     When User input Title "BugTest01"
-    And User select Project " All Company | COMPANY "
+    And User select Project "All Company"
     And User select Owner " Terry Rosberry | RES009 "
     And User select the Status value "Open"
     And User select AssociatedRisk value "SandRisk12"
@@ -45,7 +45,7 @@ Feature: Add Issue feature
     And User click on Save and Close
     Then User successfully added the new Issue
 
-    @smoke @addissue @regression @addissueClose
+    @smoke @addissue @regression @addissueClose @smoke1
     Scenario: Validate the add Issue functionality with Close
     When User click on Close
     Then User successfully closed the Issue

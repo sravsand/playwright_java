@@ -12,7 +12,7 @@ Feature: Edit Risk feature
     And User click on the ellipsis button
     
 
-  @smoke @EditRisk @regression @EditRiskSave
+  @smoke @EditRisk @regression @EditRiskSave @smoke1
   Scenario: Validate the Edit Risk functionality with save issue
     When User click on the Edit Risk button
     And User input Edit issue Titile "Edit title"
